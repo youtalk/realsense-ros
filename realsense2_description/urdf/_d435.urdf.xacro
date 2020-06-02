@@ -12,7 +12,7 @@ aluminum peripherial evaluation case.
   <!-- Includes -->
   <xacro:include filename="$(find realsense2_description)/urdf/_materials.urdf.xacro" />
   
-  <xacro:macro name="sensor_d435" params="parent *origin name:=camera use_nominal_extrinsics:=false">
+  <xacro:macro name="sensor_d435" params="parent *origin name:=camera">
     <xacro:property name="M_PI" value="3.1415926535897931" />
   
     <!-- The following values are approximate, and the camera node
@@ -79,7 +79,7 @@ aluminum peripherial evaluation case.
     </link>
 
     <!-- Use the nominal extrinsics between camera frames if the calibrated extrinsics aren't being published. e.g. running the device in simulation  -->
-    <xacro:if value="$(arg use_nominal_extrinsics)">
+    <xacro:if value="true">
       <!-- camera depth joints and links -->
       <joint name="${name}_depth_joint" type="fixed">
         <origin xyz="0 0 0" rpy="0 0 0"/>
